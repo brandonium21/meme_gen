@@ -45,14 +45,15 @@ img {
             <div class="row">
                 <div class="col-sm-8 py-4">
                     <h4 class="text-white">About</h4>
-                    <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+                    <p class="text-muted">Meme Generator for the masses</p>
                 </div>
                 <div class="col-sm-4 py-4">
                     <h4 class="text-white">Contact</h4>
                     <ul class="list-unstyled">
-                        <li><a href="https://v4-alpha.getbootstrap.com/examples/album/#" class="text-white">Follow on Twitter</a></li>
-                        <li><a href="https://v4-alpha.getbootstrap.com/examples/album/#" class="text-white">Like on Facebook</a></li>
-                        <li><a href="https://v4-alpha.getbootstrap.com/examples/album/#" class="text-white">Email me</a></li>
+                        <li>
+                            <div class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -214,6 +215,7 @@ img {
             </div>
         </div>
     </div>
+    <div id="urlTrans" class="hidden" data-url=""></div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -251,6 +253,7 @@ img {
         var what = ($("#" + $(this).attr('id') + "What").val() || "Ready");
         var text = "Can U Tag " + name + " Let " + him + " Know Im " + what;
         var pic = $(this).data("pic");
+        $(this).data("pic");
         //console.log(pic);
         var dataPush = {
             template_id: pic,
@@ -272,13 +275,15 @@ img {
 
                 $('#memeURL').val(url);
                 $('#memeURL').focus();
+                $("#urlTrans").data("url", url);
 
             });
         $('#shareBtnFb').on("click", function() {
             FB.ui({
                 method: 'share',
                 display: 'popup',
-                href: url,
+                href: $("#urlTrans").data("url"),
+                quote: 'create your own at https://brandonium21.github.io/tag-who/'
             }, function(response) {});
         });
     })

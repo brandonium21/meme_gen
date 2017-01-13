@@ -280,10 +280,10 @@ img {
             });
         $('#shareBtnFb').on("click", function() {
             FB.ui({
-                method: 'share',
-                display: 'popup',
-                href: $("#urlTrans").data("url"),
-                quote: 'create your own at https://brandonium21.github.io/tag-who/'
+                method: 'feed',
+                picture: $("#urlTrans").data("url"),
+                link: 'https://brandonium21.github.io/tag-who/',
+                description: "Create a Can U Tag ____ Let Him/Her Know Im ____ meme and share it."
             }, function(response) {});
         });
     })

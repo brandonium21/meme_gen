@@ -297,9 +297,10 @@ img {
         $('#shareBtnFb').on("click", function() {
             FB.ui({
                 method: 'feed',
-                picture: $("#urlTrans").data("url")
-                    //link: 'https://brandonium21.github.io',
-                    //description: "Create a Can U Tag ____ Let Him/Her Know Im ____ meme and share it."
+                picture: $("#urlTrans").data("url"),
+                //link: 'https://brandonium21.github.io',
+                caption: "Create Your own https://brandonium21.github.io",
+                redirect_uri: "https://brandonium21.github.io"
             }, function(response) {});
         });
     })
